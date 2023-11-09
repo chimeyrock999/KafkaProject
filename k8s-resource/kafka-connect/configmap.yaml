@@ -4,7 +4,7 @@ metadata:
   name: kafka-connect-config
   namespace: kafka-connect
 data:
-  CONNECT_BOOTSTRAP_SERVERS: "kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local"
+  CONNECT_BOOTSTRAP_SERVERS: "kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092,kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9093, kafka-cluster-kafka-bootstrap.kafka.svc.cluster.local:9094"
   CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "3"
   CONNECT_CONFIG_STORAGE_TOPIC: "k8s-connectConfigs"
   CONNECT_GROUP_ID: "k8s-connectGroup"
