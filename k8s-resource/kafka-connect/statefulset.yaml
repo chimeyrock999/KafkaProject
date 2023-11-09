@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: kafka-connect
+  namespace: kafka-connect
+spec:
+  serviceName: kafka-connect
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kafka-connect
+  template:
+    metadata:
+      labels:
+        app: kafka-connect
+    spec:
+      containers:
+        - name: kafka-connect
+          image: confluentinc/cp-kafka-connect
+          envFrom:
+            - configMapRef:
+                name: kafka-connect-config
+          ports:
+            - containerPort: 8083
+          volumeMounts:
+            - name: kafka-connect-storage
+              mountPath: /kafka-connect/storage
+      volumes:
+        - name: kafka-connect-storage
+          emptyDir: {}

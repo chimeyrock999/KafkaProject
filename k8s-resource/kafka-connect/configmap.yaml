@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-connect-config
+  namespace: kafka-connect
+data:
+  CONNECT_BOOTSTRAP_SERVERS: "103.160.79.193:9092,103.160.79.193:9093,103.160.79.193:9094"
+  CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "3"
+  CONNECT_CONFIG_STORAGE_TOPIC: "k8s-connectConfigs"
+  CONNECT_GROUP_ID: "k8s-connectGroup"
+  CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+  CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+  CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+  CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+  CONNECT_LOG4J_LOGGERS: org.apache.kafka.connect.runtime.rest=WARN, org.reflections=ERROR
+  CONNECT_LOG4J_ROOT_LOGLEVEL: INFO
+  CONNECT_REST_ADVERTISED_HOST_NAME: "kafka-connect"
+  CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "3"
+  CONNECT_OFFSET_STORAGE_TOPIC: "k8s-connectOffsets"
+  CONNECT_PLUGIN_PATH: "/usr/share/java,etc/kafka-connect/java"
+  CONNECT_REPLICATION_FACTOR: "3"
+  CONNECT_REST_PORT: "8083"
+  CONNECT_STATUS_STORAGE_TOPIC: "k8s-connectStatus"
+  CONNECT_VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+  CONNET_LOG4J_APPENDER_STDOUT_LAYOUT_CONVERSIONPATTERN: "%d{yy/MM/dd HH:mm:ss} %p %c{1}: %m%n"
+
